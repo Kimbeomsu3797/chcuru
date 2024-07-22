@@ -106,6 +106,9 @@ public class EnemyController : MonoBehaviour
                 Animator animator = GetComponent<Animator>();
                 animator.Play(deadAnime);
                 Destroy(gameObject, 0.5f);
+
+                //배치 Id 기록
+                SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
         }
     }

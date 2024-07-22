@@ -54,6 +54,16 @@ public class RoomManager : MonoBehaviour
     {
         doorNumber = doornum;
 
+        string nowScene = PlayerPrefs.GetString("LastScene");
+        if(nowScene != "")
+        {
+            SaveDataManager.SaveArrangeData(nowScene);  //배치 데이터 저장
+        }
+        PlayerPrefs.SetString("LastScene", scenename);  // 씬 이름 저장
+        PlayerPrefs.SetInt("LastDoor", doornum);        // 문 번호 저장
+        Itemkeeper.SaveItem();                          // 아이템 저장
+        
+        
         SceneManager.LoadScene(scenename);
     }
 }

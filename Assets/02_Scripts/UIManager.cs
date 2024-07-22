@@ -107,4 +107,22 @@ public class UIManager : MonoBehaviour
     {
         mainImage.SetActive(false);
     }
+    public void GameClear()
+    {
+        //화면 표시
+        mainImage.SetActive(true);
+        mainImage.GetComponent<Image>().sprite = gameClearSpr; // GameClear설정
+        //조작 UI숨기기
+        inputPanel.SetActive(false);
+        //게임 클리어
+        PlayerController.gameState = "gameclear";
+        //3초 뒤에 타이틀 화면으로 이동
+        Invoke("GoToTitle", 3.0f);
+    }
+    //타이틀 화면으로 돌아가기
+    void GoToTitle()
+    {
+        PlayerPrefs.DeleteKey("LastScene");             //저장되어있는 씬을 제거
+        SceneManager.LoadScene("Title");                //타이틀 씬으로 돌아가기
+    }
 }

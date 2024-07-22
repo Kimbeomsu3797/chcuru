@@ -20,10 +20,13 @@ public class Door : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            
             if(Itemkeeper.hasKeys > 0)
             {
                 Itemkeeper.hasKeys--;
                 Destroy(this.gameObject);
+                //배치 Id 기록
+                SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
             }
         }
     }

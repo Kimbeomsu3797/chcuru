@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
         //게임 상태를 플레이 중으로 하기
         gameState = "Playing";
         rbody = GetComponent<Rigidbody2D>();
+        //HP 갱신
+        hp = PlayerPrefs.GetInt("PlayerHP");
     }
 
     

@@ -45,7 +45,9 @@ public class ItemData : MonoBehaviour
             {
                 if(PlayerController.hp < 3)
                 {
+                    //HP가 3이하면 추가
                     PlayerController.hp++;
+                    //HP 갱신
                     PlayerPrefs.SetInt("PlayerHP", PlayerController.hp);
                 }
             }
@@ -55,5 +57,8 @@ public class ItemData : MonoBehaviour
         itemBody.gravityScale = 2.5f;
         itemBody.AddForce(new Vector2(0, 6), ForceMode2D.Impulse);
         Destroy(gameObject, 0.5f);
+
+        //배치 Id 기록
+        SaveDataManager.SetArrangeId(arrangeId, gameObject.tag);
     }
 }
